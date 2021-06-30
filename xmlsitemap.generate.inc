@@ -198,7 +198,7 @@ function xmlsitemap_generate_chunk(stdClass $sitemap, XMLSitemapWriter $writer, 
     drupal_alter('query_xmlsitemap_generate', $data, $sitemap);
   }
 
-  $sql = implode($query, ' ');
+  $sql = implode(' ', $query);
   $offset = max($chunk - 1, 0) * xmlsitemap_get_chunk_size();
   $limit = xmlsitemap_get_chunk_size();
   $query = db_query_range($sql, $args, $offset, $limit);
